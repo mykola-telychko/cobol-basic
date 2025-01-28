@@ -1,0 +1,43 @@
+echo.cbl:1: note: free format detected
+    1 > IDENTIFICATION DIVISION.
+    2 |        PROGRAM-ID. HELLO-WORLD.
+    3 | 
+echo.cbl:6: warning: line not terminated by a newline [-Wmissing-newline]
+    4 |        PROCEDURE DIVISION.
+    5 |            DISPLAY "Hello, World!".
+    6 >            STOP RUN.<EOF>
+
+Твоя програма має дві проблеми:
+
+Попередження (-Wmissing-newline): Останній рядок у файлі echo.cbl не містить символа нового рядка (\n). Це не є критичною помилкою, але компілятор GnuCOBOL попереджає про це.
+Виявлено "free format" (note: free format detected): COBOL має два формати:
+Fixed format (класичний стиль, де код починається з 8-го стовпця).
+Free format (сучасний стиль, де код може починатися з будь-якого стовпця).
+Компілятор визначив, що твій код використовує free format, що нормально, але варто бути уважним із відступами.
+
+Як виправити проблему?
+Онови файл echo.cbl, щоб додати новий рядок у кінці:
+
+cobol
+Копировать
+Редактировать
+IDENTIFICATION DIVISION.
+PROGRAM-ID. HELLO-WORLD.
+
+PROCEDURE DIVISION.
+    DISPLAY "Hello, World!".
+    STOP RUN.
+Тепер збережи файл і переконайся, що в кінці є порожній рядок.
+
+Перекомпіляція:
+Спробуй знову запустити:
+
+bash
+Копировать
+Редактировать
+cobc -x -o echo echo.cbl
+./echo
+
+
+ 905  cobc -x -o echo echo.cbl\n
+906  ./echo
