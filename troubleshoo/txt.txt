@@ -37,6 +37,5 @@ bash
 cobc -x -o echo echo.cbl
 ./echo
 
-
 > cobc -x -o echo echo.cbl\n
 > ./echo

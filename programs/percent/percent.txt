@@ -1,0 +1,35 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. PERCENT.
+       
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+       DISPLAY SORT.
+       
+       DATA DIVISION.
+           WORKING-STORAGE SECTION.
+               01 NUMBER1       PIC 9(9)V99 VALUE 0.
+               01 NUMBER2       PIC 9(9)V99 VALUE 0.
+               01 PERCENT       PIC 9(5)V99 VALUE 0.
+               01 PERCENTAGE    PIC 9(9)V99 VALUE 0.
+               01 TOTAL         PIC 9(9)V99 VALUE 0.
+       
+       PROCEDURE DIVISION.
+           DISPLAY "Enter a number: ".
+           ACCEPT NUMBER1.
+       
+           DISPLAY "Enter a percentage: ".
+           ACCEPT PERCENT.
+       
+           COMPUTE PERCENTAGE = NUMBER1 * PERCENT / 100.
+           DISPLAY "The percentage of the number is: " PERCENTAGE.
+       
+           DISPLAY "Enter a number: ".
+           ACCEPT NUMBER2.
+       
+           DISPLAY "Enter the percentage that this number represents: ".
+           ACCEPT PERCENT.
+       
+           COMPUTE TOTAL = NUMBER2 * 100 / PERCENT.
+           DISPLAY "The total number is: " TOTAL.
+       
+           STOP RUN.
